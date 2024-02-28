@@ -51,7 +51,7 @@ resource "aws_instance" "main" {
 }
 
 resource "terraform_data" "webapp" {
-  triggers = [
+  triggers_replace = [
     length(aws_instance.main.*.id),
     join(",", aws_instance.main.*.id)
   ]
